@@ -28,5 +28,6 @@ jobs:
       - name: Create Release 🛫
         if: fromJSON(steps.check.outputs.validTag)
         uses: softprops/action-gh-release@v2
-        files: |
-          ${{ github.workspace }}/*.uf2
+        with:
+          files: |
+            ${{ github.workspace }}/*.uf2
