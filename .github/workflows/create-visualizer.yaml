@@ -44,5 +44,18 @@ jobs:
             git push
           fi
 
+      - name : Create Tag
+        uses: amitsingh-007/next-release-tag@v6.0.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          tag_prefix: 'v'
+          tag_template: 'yyyy.mm.dd.i'
+
+      - name: Push Tag
+        run: |
+          git tag ${{ steps.generate_release_tag.outputs.next_release_tag }}
+          git push origin ${{ steps.generate_release_tag.outputs.next_release_tag }}
+
+
 
 

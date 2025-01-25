@@ -26,23 +26,11 @@ jobs:
       - name: Download Build Artifacts 📥
         uses: actions/download-artifact@v4
 
-      - name : Create Tag
-        uses: amitsingh-007/next-release-tag@v6.0.0
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          tag_prefix: 'v'
-          tag_template: 'yyyy.mm.dd.i'
-
-      - name: Push Tag
-        run: |
-          git tag ${{ steps.generate_release_tag.outputs.next_release_tag }}
-          git push origin ${{ steps.generate_release_tag.outputs.next_release_tag }}
-
       - name: Create Release 🛫
+        if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@67b6c38432c171b8aa64dc6f3f152d12da2d99fa
         with:
-          name: Release ${{ steps.generate_release_tag.outputs.next_release_tag }}
-          tag_name: ${{ steps.generate_release_tag.outputs.next_release_tag }}
+          name: Release ${{ github.ref_name }}
           token: ${{secrets.GITHUB_TOKEN}}
           generate_release_notes: true
           files: |
