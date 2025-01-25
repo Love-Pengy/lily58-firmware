@@ -1,5 +1,5 @@
 name: Visualizer Action
-on: [push]
+# on: [push]
 # permissions:
 #   contents: write
 env:
