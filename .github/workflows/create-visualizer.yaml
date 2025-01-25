@@ -38,7 +38,7 @@ jobs:
           git config user.name 'github-actions'
           git config user.email 'github.actions@github.com'
           git remote set-url --push origin https://Love-Pengy:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY
-          if [[ 'git status --porcelain' ]]; then
+          if [[ `git status --porcelain` ]]; then
             git add *.svg
             git commit -m "Add Keymap Visualizer"
             git push
