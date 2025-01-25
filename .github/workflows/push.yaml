@@ -19,7 +19,7 @@ jobs:
 
   create-release:
     name: Create Release 🛫
-    runs-on: ubuntu latest
+    runs-on: ubuntu-latest
     needs: [build-firmware, create-visualizer]
     steps:
       - name: Download Build Artifacts 📥
