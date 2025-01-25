@@ -1,5 +1,6 @@
 name: Visualizer Action
-# on: [push]
+on:
+  workflow_call:
 # permissions:
 #   contents: write
 env:
