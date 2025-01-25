@@ -41,12 +41,12 @@ jobs:
       - name: verify
         run: echo ${{ steps.release_tag.outputs.next_release_tag }}
 
-      # - name: Create Release 🛫
-      #   uses: softprops/action-gh-release@67b6c38432c171b8aa64dc6f3f152d12da2d99fa
-      #   with:
-      #     name: Release ${{ github.ref_name }}
-      #     token: ${{secrets.GITHUB_TOKEN}}
-      #     tag_name: ${{ steps.tag.next_release_tag }}
-      #     generate_release_notes: true
-      #     files: |
-      #       ${{ github.workspace }}/*.uf2
+      - name: Create Release 🛫
+        uses: softprops/action-gh-release@67b6c38432c171b8aa64dc6f3f152d12da2d99fa
+        with:
+          name: Release ${{ github.ref_name }}
+          token: ${{secrets.GITHUB_TOKEN}}
+          tag_name: ${{ steps.release_tag.outputs.next_release_tag }}
+          generate_release_notes: true
+          files: |
+            ${{ github.workspace }}/*.uf2
