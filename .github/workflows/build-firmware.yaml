@@ -24,7 +24,7 @@ jobs:
       - name: Overwrite All
         run: cp -r ./* /home/runner/qmk_firmware/keyboards/boardsource/lulu/
       - name: Build Lily
-        run: qmk compile -km Love-Pengy -kb boardsource/lulu/avr
+        run: qmk compile -km Love-Pengy -kb boardsource/lulu/avr -e CONVERT_TO=blok
       - name: Upload Artifacts 📡
         uses: actions/upload-artifact@v4
         with:
