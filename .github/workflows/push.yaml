@@ -39,7 +39,13 @@ jobs:
       #     git tag ${{ steps.create_tag.next_release_tag }}
       #     git push origin ${{ steps.generate_release_tag.outputs.next_release_tag }}
       - name: verify
-        run: echo ${{ steps.release_tag.outputs.next_release_tag }}
+        run: |
+          echo ${{ steps.release_tag.outputs.next_release_tag }}
+          echo ${{ github.workspace }}
+          ls -l ${{ github.workspace }}
+          echo "------------------"
+          ls -l
+
 
       - name: Create Release 🛫
         uses: softprops/action-gh-release@67b6c38432c171b8aa64dc6f3f152d12da2d99fa
