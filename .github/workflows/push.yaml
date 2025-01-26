@@ -55,4 +55,4 @@ jobs:
           tag_name: ${{ steps.release_tag.outputs.next_release_tag }}
           generate_release_notes: true
           files: |
-            ${{ github.workspace }}/*.uf2
+            ${{ github.workspace }}/lily58-firmware-Love-Pengy/*.uf2
