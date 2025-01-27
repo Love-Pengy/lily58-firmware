@@ -43,16 +43,6 @@ jobs:
             echo "release=no" >> $GITHUB_OUTPUT
             echo "got no"
           fi
-      - name: Parse Context
-        id: parse_context
-        run: |
-          if cat ./release_context | grep yes; then
-            echo "release=yes" >> $GITHUB_OUTPUT
-            echo "got yes"
-          else
-            echo "release=no" >> $GITHUB_OUTPUT
-            echo "got no"
-          fi
 
       - name: Download Build Artifacts 📥
         if: steps.parse_context.outputs.release == 'yes'
