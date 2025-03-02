@@ -288,24 +288,14 @@ bool oled_task_user(void) {
             case _ADJUST_GAMING:
                 oled_write_raw_P(marcy, sizeof(marcy));
                 break;
-            case _QWERTY_STUDY:
-                oled_write_raw_P(peebs, sizeof(peebs));
-                break;
-            case _LOWER_STUDY:
-                oled_write_raw_P(peebs, sizeof(peebs));
-                break;
-            case _RAISE_STUDY:
-                oled_write_raw_P(peebs, sizeof(peebs));
-                break;
-            case _ADJUST_STUDY:
-                oled_write_raw_P(peebs, sizeof(peebs));
-                break;
             default:
+                oled_write_raw_P(peebs, sizeof(peebs));
                 break;
         }
-        // from boardsource/lib
-        /*render_layer_state();*/
-    } else {
+    }
+    // from boardsource/lib
+    /*render_layer_state();*/
+    else {
         render_space(); // Call this to render the space stuff on the one screen
     }
     return false;
